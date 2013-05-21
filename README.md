@@ -6,7 +6,7 @@ my personal .vimrc feel free to use and modify as you wish
 
 it uses vundle for plugin management, the first installation can be a bit long
 
-for YouCompleteMe plugin and Syntastic please follow their documentation for a correct setup(use the full installation guide for all the fetuatures)
+for YouCompleteMe plugin and Syntastic please follow their documentation for a correct setup(use the full installation guide for all the features)
 https://github.com/Valloric/YouCompleteMe
 https://github.com/scrooloose/syntastic
 
