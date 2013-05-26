@@ -73,9 +73,13 @@ let g:ycm_global_ycm_extra_conf = '.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_register_as_syntastic_checker = 1
 
-"Too Fucking Slow
 Bundle "scrooloose/syntastic"
-
+let g:syntastic_python_checkers = ['flake8']
+"need fix not working
+let g:syntastic_python_flake8_args='--ignore="E501,E302,E261,E701,E241,E126,E127,E128,W801"'
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
 
 " Git support
 Bundle 'tpope/vim-fugitive'
