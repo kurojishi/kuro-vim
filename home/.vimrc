@@ -69,14 +69,14 @@ Bundle 'Lokaltog/vim-powerline'
 "vim autocompletion
  Bundle 'Valloric/YouCompleteMe'
 "YouCompleteMe standard flags for C/C++ files
-let g:ycm_global_ycm_extra_conf = '.vmm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_register_as_syntastic_checker=1
 let g:ycm_confirm_extra_conf = 0
 
 Bundle "scrooloose/syntastic"
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=E501,E302,E261,E262,E701,E241,E126,E127,E128,W801'
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_args = '--rcfile=/home/kurojishi/.pylintrc'
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
