@@ -75,10 +75,8 @@ let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_confirm_extra_conf = 0
 
 Bundle "scrooloose/syntastic"
-let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes']
-"need fix not working
-let g:syntastic_python_flake8_args = ' --ignore="E501,E302,E261,E262,E701,E241,E126,E127,E128,W801"'
-let g:syntastic_python_pep8_args = ' --ignore="E501,E302,E261,E262,E701,E241,E126,E127,E128,W801"'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore=E501,E302,E261,E262,E701,E241,E126,E127,E128,W801'
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
