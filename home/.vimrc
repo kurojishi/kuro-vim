@@ -75,11 +75,10 @@ let g:ycm_register_as_syntastic_checker=1
 let g:ycm_confirm_extra_conf = 0
 
 Bundle "scrooloose/syntastic"
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=E302,E261,E262,E701,E241,E126,E127,E128,W801'
-let g:syntastic_mode_map = { 'mode': 'active', 
-                              \ 'active_filetypes': [], 
-                              \ 'passive_filetypes': ['python'] }
+let g:syntastic_python_checkers = ['pylint']
+"let g:syntastic_mode_map = { 'mode': 'active', 
+                              "\ 'active_filetypes': [], 
+                              "\ 'passive_filetypes': ['python'] }
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
@@ -135,7 +134,7 @@ imap <F2> <ESC><C-W><UP><TAB><CR>
 "
 " Variuos python support and completion
 Bundle 'klen/python-mode'
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_checker = 'pylint'
 let g:pymode_lint_ignore = 'C0111,C0103,C0301,R0902'
 Bundle 'python.vim'
