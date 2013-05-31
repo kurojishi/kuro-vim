@@ -34,6 +34,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 
 
 
+"Buffers and windows {
 " VIP section (very importants plugins)
 " NerdTree
 Bundle 'scrooloose/nerdtree'
@@ -54,47 +55,15 @@ let NERDTreeQuitOnOpen=0
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 
-
-
 " Ctags Tab Bar support
 Bundle 'majutsushi/tagbar'
 
 " TagBar
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-
 " fantastic status line with git support
 Bundle 'Lokaltog/vim-powerline'
 
-"vim autocompletion
- Bundle 'Valloric/YouCompleteMe'
-"YouCompleteMe standard flags for C/C++ files
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_register_as_syntastic_checker=1
-let g:ycm_confirm_extra_conf = 0
-
-Bundle "scrooloose/syntastic"
-let g:syntastic_python_checkers = ['pylint']
-"let g:syntastic_mode_map = { 'mode': 'active', 
-                              "\ 'active_filetypes': [], 
-                              "\ 'passive_filetypes': ['python'] }
-" Better :sign interface symbols
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-
-" Git support
-Bundle 'tpope/vim-fugitive'
-
-" Fugitive {
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-
-"Buffers
 "buffexplorer plugin
 Bundle 'fholgado/minibufexpl.vim'
 
@@ -107,13 +76,46 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 nnoremap <silent> <F9> :TMiniBufExplorer<CR>
 
-
 map <F1> <ESC><C-W><UP><S-TAB><CR>
 imap <F1> <ESC><C-W><UP><S-TAB><CR>
 map <F2> <ESC><C-W><UP><TAB><CR>
 imap <F2> <ESC><C-W><UP><TAB><CR>
 
-"Language specific
+" Fuzzy file, buffer, mru and tag finder
+Bundle 'kien/ctrlp.vim'
+"}
+
+
+"Semantics and Syntax {
+"vim powerfull autocompletion engine
+ Bundle 'Valloric/YouCompleteMe'
+"YouCompleteMe standard flags for C/C++ files
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_register_as_syntastic_checker=1
+let g:ycm_confirm_extra_conf = 0
+
+Bundle "scrooloose/syntastic"
+let g:syntastic_python_checkers = ['pylint']
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+"}
+
+
+" Git support {
+Bundle 'tpope/vim-fugitive'
+
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+"}
+
+
+"Language specific {
 
 "set rtp+=$GOROOT/misc/vim
 "GO bundle plugin still have to figure it out
@@ -145,16 +147,15 @@ endif
 "Ruby
 Bundle "vim-ruby/vim-ruby"
 
-
 " A simple highlighting file for JSON constructs
 Bundle 'leshill/vim-json'
 
-
 "Click modular router syntax highlighing
 Bundle 'vim-scripts/click.vim'
+"}
 
-" Fuzzy file, buffer, mru and tag finder
-Bundle 'kien/ctrlp.vim'
+
+"Varies {
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
 " Vim plugin for intensely orgasmic commenting
@@ -168,11 +169,16 @@ if executable('ack')
 endif
 
 Bundle "mbbill/undotree"
-
 nnoremap <silent> <leader>ut :UndotreeToggle<CR>
-" Code Snippets
 
-" Code snippets (try to use TAB in insert mode) still have to figure this out
+Bundle 'chrisbra/NrrwRgn'
+let g:nrrw_rgn_vert = 1
+let g:nrrw_rgn_wdth = 80
+let g:nrrw_topbot_leftright = 'topleft'
+
+"}
+
+" Code Snippets {
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle 'spf13/snipmate-snippets'
@@ -180,19 +186,17 @@ Bundle 'spf13/snipmate-snippets'
 if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
     source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
 endif
+"}
 
-
-"Color section
+"Color section {
 
 " More colorscheme
 Bundle 'flazz/vim-colorschemes'
 " More colors
 Bundle 'spf13/vim-colors'
-" Make gvim-only colorschemes work transparently in terminal vim
-"Bundle 'godlygeek/csapprox'
+"}
 
-
- " General {                                                                                     
+ " General settings {                                                                                     
 set background=dark         " Assume a dark background
 if !has('gui')
     "set term=$TERM          " Make arrow and other keys work
@@ -206,7 +210,7 @@ set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
 set virtualedit=onemore         " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
-set nospell                        " spell checking on
+set nospell                     " spell checking off
 set hidden                      " allow buffer switching without saving
 
 " Setting up the directories {
