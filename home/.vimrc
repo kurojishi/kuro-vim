@@ -115,28 +115,23 @@ imap <F2> <ESC><C-W><UP><TAB><CR>
 
 "Language specific
 
-"GO bundle plugin still have to figure it out
-"Bundle ' jnwhiteh/vim-golang'
-
 "set rtp+=$GOROOT/misc/vim
+"GO bundle plugin still have to figure it out
+Bundle 'jnwhiteh/vim-golang.git'
+"Bundle 'undx/vim-gocode'
 
-""Tagbar golang ctags patch
-"let g:tagbar_type_go = {
-    "\ 'ctagstype': 'go',
-    "\ 'kinds' : [
-        "\'p:package',
-        "\'f:function',
-        "\'v:variables',
-        "\'t:type',
-        "\'c:const'
-    "\]
-"\}
-"
+
 " Variuos python support and completion
 Bundle 'klen/python-mode'
 let g:pymode_lint = 0
-let g:pymode_lint_checker = 'pylint'
-let g:pymode_lint_ignore = 'C0111,C0103,C0301,R0902'
+"Rope omnicomp settings
+let g:pymode_rope = 1
+let g:pymode_rope_extended_complete=1
+let g:pymode_rope_enable_autoimport = 0
+let g:pymode_rope_autoimport_generate = 0
+let g:pymode_rope_autoimport_underlineds = 0
+let g:pymode_rope_guess_project = 0
+let g:pymode_rope_goto_def_newwin = "" 
 Bundle 'python.vim'
 Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
@@ -150,9 +145,13 @@ endif
 "Ruby
 Bundle "vim-ruby/vim-ruby"
 
+
 " A simple highlighting file for JSON constructs
 Bundle 'leshill/vim-json'
 
+
+"Click modular router syntax highlighing
+Bundle 'vim-scripts/click.vim'
 
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
@@ -285,14 +284,6 @@ set pastetoggle=<F11>           " pastetoggle (sane indentation on pastes)
 autocmd FileType c,cpp,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
 
-" Ruby code.
-augroup ruby
-autocmd BufReadPre,FileReadPre *.rb set tabstop=2
-autocmd BufReadPre,FileReadPre *.rb set shiftwidth=2
-augroup END
-
-
-
 " Key (re)Mappings {
 
 " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
@@ -397,12 +388,33 @@ function! NERDTreeInitAsNeeded()
 endfunction
 " }
 
+"AdHoc rules for languages and filetypes {
+" Ruby code.
+augroup ruby
+autocmd BufReadPre,FileReadPre *.rb set tabstop=2
+autocmd BufReadPre,FileReadPre *.rb set shiftwidth=2
+augroup END
 
+"C/C++ Code
+augroup cpp
+autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set tabstop=4
+autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set noexpandtab 
+augroup END
 
+"GO code
+augroup go
+au BufNewFile,BufRead *.go setf go 
+augroup END
+
+"Click filetype detecting
+augroup click
+au BufNewFile,BufRead *.click setf click 
+augroup END
+"}
 
 " Enable omni completion.
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=RopeCompleteFunc
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
