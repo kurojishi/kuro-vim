@@ -120,7 +120,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "set rtp+=$GOROOT/misc/vim
 "GO bundle plugin still have to figure it out
 Bundle 'jnwhiteh/vim-golang.git'
-"Bundle 'undx/vim-gocode'
+Bundle 'undx/vim-gocode'
 
 
 " Variuos python support and completion
@@ -145,7 +145,7 @@ if !has('python')
 endif
 
 "Ruby
-Bundle "vim-ruby/vim-ruby"
+Bundle 'vim-ruby/vim-ruby'
 
 " A simple highlighting file for JSON constructs
 Bundle 'leshill/vim-json'
@@ -156,6 +156,7 @@ Bundle 'vim-scripts/click.vim'
 
 
 "Varies {
+Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
 " Vim plugin for intensely orgasmic commenting
@@ -168,8 +169,15 @@ if executable('ack')
     Bundle 'mileszs/ack.vim'
 endif
 
-Bundle "mbbill/undotree"
-nnoremap <silent> <leader>ut :UndotreeToggle<CR>
+"Undo tree plugins for now gundo is better for live moving in the three but
+"the live changes on undotree are sweet
+"Bundle 'mbbill/undotree'
+"nnoremap <silent> <leader>ut :UndotreeToggle<CR>
+"let g:undotree_TreeNodeShape = 'o'
+"let g:undotree_SplitWidth = 40
+"let g:undotree_SetFocusWhenToggle = 1
+Bundle 'sjl/gundo.vim'
+nnoremap <F5> :GundoToggle<CR>
 
 Bundle 'chrisbra/NrrwRgn'
 let g:nrrw_rgn_vert = 1
@@ -179,13 +187,12 @@ let g:nrrw_topbot_leftright = 'topleft'
 "}
 
 " Code Snippets {
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'spf13/snipmate-snippets'
-" Source support_function.vim to support snipmate-snippets.
-if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
-    source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
-endif
+"" Source support_function.vim to support snipmate-snippets.
+"This plugin integrate with YCM 
+Bundle 'SirVer/ultisnips'
+"Bundle 'honza/vim-snippets' "collection of snippets most of them are in ultisnips by default still need to check them all
+let g:UltiSnipsExpandTrigger='<C-e>'
+let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 "}
 
 "Color section {
@@ -395,20 +402,32 @@ endfunction
 "AdHoc rules for languages and filetypes {
 " Ruby code.
 augroup ruby
-autocmd BufReadPre,FileReadPre *.rb set tabstop=2
-autocmd BufReadPre,FileReadPre *.rb set shiftwidth=2
+    autocmd BufReadPre,FileReadPre *.rb set tabstop=2
+    autocmd BufReadPre,FileReadPre *.rb set shiftwidth=2
+    autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
 "C/C++ Code
 augroup cpp
-autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set tabstop=4
-autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set noexpandtab 
+    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set tabstop=4
+    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set shiftwidth=4
+    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set noexpandtab 
 augroup END
 
 "GO code
 augroup go
-au BufNewFile,BufRead *.go setf go 
+    au BufNewFile,BufRead *.go setf go 
 augroup END
+
+augroup python
+    au FileType python setlocal tabstop=4
+    au FileType python setlocal shiftwidth=4
+    au FileType python setlocal noexpandtab
+autocmd FileType python setlocal omnifunc=RopeCompleteFunc
+augroup END
+
 
 "Click filetype detecting
 augroup click
@@ -417,8 +436,4 @@ augroup END
 "}
 
 " Enable omni completion.
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
