@@ -117,10 +117,11 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 "Language specific {
 
-"set rtp+=$GOROOT/misc/vim
+set rtp+=$GOROOT/misc/vim
+set rtp+=$GOPATH/bin
 "GO bundle plugin still have to figure it out
-Bundle 'jnwhiteh/vim-golang.git'
-Bundle 'undx/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
+"Bundle 'undx/vim-gocode'
 
 
 " Variuos python support and completion
@@ -161,6 +162,8 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'matchit.zip'
 " Vim plugin for intensely orgasmic commenting
 Bundle 'scrooloose/nerdcommenter'
+"Endwise add enders to language that needs them(like ruby etc)
+Bundle 'tpope/vim-endwise'
 " Usefull stuff
 Bundle 'spf13/vim-markdown'
 Bundle 'spf13/vim-preview'
@@ -357,8 +360,8 @@ nmap <silent> <C-S-Right> :wincmd l<CR>
 " Functions
 function! InitializeDirectories()
     let separator = "."
-    let parent = $HOME
-    let prefix = '.vim'
+    let parent = '/home/kurojishi/.vim/'
+    let prefix = ''
     let dir_list = {
                 \ 'backup': 'backupdir',
                 \ 'views': 'viewdir',
