@@ -97,6 +97,7 @@ let g:ycm_confirm_extra_conf = 0
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_go_checkers = ['golint']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
