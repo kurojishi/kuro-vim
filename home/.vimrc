@@ -117,11 +117,9 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 "Language specific {
 
-set rtp+=$GOROOT/misc/vim
-set rtp+=$GOPATH/bin
 "GO bundle plugin still have to figure it out
 Bundle 'jnwhiteh/vim-golang'
-"Bundle 'undx/vim-gocode'
+Bundle 'undx/vim-gocode'
 
 
 " Variuos python support and completion
@@ -153,6 +151,9 @@ Bundle 'leshill/vim-json'
 
 "Click modular router syntax highlighing
 Bundle 'vim-scripts/click.vim'
+
+"plantuml format
+"Bundle 'aklt/plantuml-syntax'
 "}
 
 
@@ -360,7 +361,7 @@ nmap <silent> <C-S-Right> :wincmd l<CR>
 " Functions
 function! InitializeDirectories()
     let separator = "."
-    let parent = '/home/kurojishi/.vim/'
+    let parent = '/home/kurojishi/.vim'
     let prefix = ''
     let dir_list = {
                 \ 'backup': 'backupdir',
@@ -434,8 +435,12 @@ augroup END
 
 "Click filetype detecting
 augroup click
-au BufNewFile,BufRead *.click setf click 
+    au BufNewFile,BufRead *.click setf click 
 augroup END
+
+"augroup plantuml
+    "au BufNewFile,BufRead *.uml, *.plantuml setf plantuml
+"augroup END
 "}
 
 " Enable omni completion.
