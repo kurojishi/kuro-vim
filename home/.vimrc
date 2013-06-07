@@ -89,11 +89,10 @@ Bundle 'kien/ctrlp.vim'
 "Semantics and Syntax {
 "vim powerfull autocompletion engine
  Bundle 'Valloric/YouCompleteMe'
-"YouCompleteMe standard flags for C/C++ files
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_register_as_syntastic_checker=1
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C/C++ files
+let g:ycm_autoclose_preview_window_after_completion=1           " Open documentation preview of currently selected funcion in the autocomple windows
+let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
+let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
@@ -119,9 +118,9 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "Language specific {
 
 "GO bundle plugin still have to figure it out
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'undx/vim-gocode'
-
+Bundle 'jnwhiteh/vim-golang'       
+"awesome autocomplete engine for golang
+Bundle 'undx/vim-gocode'           
 
 " Variuos python support and completion
 Bundle 'klen/python-mode'
@@ -153,8 +152,6 @@ Bundle 'leshill/vim-json'
 "Click modular router syntax highlighing
 Bundle 'vim-scripts/click.vim'
 
-"plantuml format
-"Bundle 'aklt/plantuml-syntax'
 "}
 
 
@@ -188,6 +185,12 @@ Bundle 'chrisbra/NrrwRgn'
 let g:nrrw_rgn_vert = 1
 let g:nrrw_rgn_wdth = 80
 let g:nrrw_topbot_leftright = 'topleft'
+
+"Help align things
+Bundle 'godlygeek/tabular'
+
+"a lot of easy configuration and replacing for vim, testing
+"Bundle 'tpope/vim-abolish'
 
 "}
 
@@ -367,7 +370,8 @@ function! InitializeDirectories()
     let dir_list = {
                 \ 'backup': 'backupdir',
                 \ 'views': 'viewdir',
-                \ 'swap': 'directory' }
+                \ 'swap': 'directory',
+                \ 'snippets': 'directory' }
 
     if has('persistent_undo')
         let dir_list['undo'] = 'undodir'
@@ -430,7 +434,7 @@ augroup python
     au FileType python setlocal tabstop=4
     au FileType python setlocal shiftwidth=4
     au FileType python setlocal noexpandtab
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
+    autocmd FileType python setlocal omnifunc=RopeCompleteFunc
 augroup END
 
 
@@ -439,9 +443,6 @@ augroup click
     au BufNewFile,BufRead *.click setf click 
 augroup END
 
-"augroup plantuml
-    "au BufNewFile,BufRead *.uml, *.plantuml setf plantuml
-"augroup END
 "}
 
 " Enable omni completion.

@@ -17,7 +17,8 @@ if you find something that can be improved or removed please set up a issue i'm 
 
 INSTALL and SETUP
 --------
-needs to clone vundle in .vim/bundle/ https://github.com/gmarik/vundle/ a :BundleInstall! will download and install all the other plugin
+be sure to have at least vim 7.3.584(needed by YouCompleteMe) compiled with +python support.
+you need to clone vundle in .vim/bundle/ https://github.com/gmarik/vundle/ a :BundleInstall! will download and install all the other plugin
 
 YouCompleteMe need to be compiled cd .vim/bundle/YouCompleteMe && ./install.sh --clang-completer 
 but read the doc for more infos
