@@ -58,71 +58,8 @@ let NERDTreeKeepTreeInNewTab=1
 " Ctags Tab Bar support
 Bundle 'majutsushi/tagbar'
 
-" TagBar
+"tagbar remap
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
-
-" fantastic status line with git support
-Bundle 'Lokaltog/vim-powerline'
-
-"buffexplorer plugin
-Bundle 'fholgado/minibufexpl.vim'
-
-" mini buffer explorer
-let g:MiniBufExplorer=1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-nnoremap <silent> <F9> :TMiniBufExplorer<CR>
-
-map <F1> <ESC><C-W><UP><S-TAB><CR>
-imap <F1> <ESC><C-W><UP><S-TAB><CR>
-map <F2> <ESC><C-W><UP><TAB><CR>
-imap <F2> <ESC><C-W><UP><TAB><CR>
-
-" Fuzzy file, buffer, mru and tag finder
-Bundle 'kien/ctrlp.vim'
-"}
-
-
-"Semantics and Syntax {
-"vim powerfull autocompletion engine
- Bundle 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C/C++ files
-let g:ycm_autoclose_preview_window_after_completion=1           " Open documentation preview of currently selected funcion in the autocomple windows
-let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
-let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
-
-Bundle "scrooloose/syntastic"
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_go_checkers = ['golint']
-" Better :sign interface symbols
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-"}
-
-
-" Git support {
-Bundle 'tpope/vim-fugitive'
-
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-"}
-
-
-"Language specific {
-
-"GO bundle plugin still have to figure it out
-Bundle 'jnwhiteh/vim-golang'       
-"awesome autocomplete engine for golang
-Bundle 'undx/vim-gocode'
-"Go def for parsin of definition and simbols
-Bundle 'dgryski/vim-godef'
 
 "GO tagbar configuration
 let g:tagbar_type_go = {
@@ -152,6 +89,87 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+"ruby tags
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
+
+" fantastic status line with git support
+Bundle 'Lokaltog/vim-powerline'
+
+"buffexplorer plugin
+Bundle 'fholgado/minibufexpl.vim'
+
+" mini buffer explorer
+let g:MiniBufExplorer=1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+nnoremap <silent> <F9> :TMiniBufExplorer<CR>
+
+map <F1> <ESC><C-W><UP><S-TAB><CR>
+imap <F1> <ESC><C-W><UP><S-TAB><CR>
+map <F2> <ESC><C-W><UP><TAB><CR>
+imap <F2> <ESC><C-W><UP><TAB><CR>
+
+" Fuzzy file, buffer, mru and tag finder
+Bundle 'kien/ctrlp.vim'
+"}
+
+
+"Semantics and Syntax {
+"vim powerfull autocompletion engine
+ Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C/C++ files
+let g:ycm_autoclose_preview_window_after_completion=1           " Open documentation preview of currently selected funcion in the autocomple windows
+let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
+let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
+
+
+Bundle "scrooloose/syntastic"
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_go_checkers = ['golint']
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
+nnoremap <F10> :SyntasticCheck<CR>
+
+"}
+
+
+" Git support {
+Bundle 'tpope/vim-fugitive'
+
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+
+"}
+
+
+"Language specific {
+
+"GO bundle plugin still have to figure it out
+Bundle 'jnwhiteh/vim-golang'       
+"awesome autocomplete engine for golang
+Bundle 'undx/vim-gocode'
+"Go def for parsin of definition and simbols
+Bundle 'dgryski/vim-godef'
 
 
 " Variuos python support and completion
@@ -193,6 +211,7 @@ let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
 
 
 "Varies {
+
 Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
@@ -232,7 +251,9 @@ Bundle 'Lokaltog/vim-easymotion'
 "a lot of easy configuration and replacing for vim, testing
 "Bundle 'tpope/vim-abolish'
 
+
 "}
+
 
 " Code Snippets {
 "" Source support_function.vim to support snipmate-snippets.
@@ -251,10 +272,10 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'spf13/vim-colors'
 "}
 
- " General settings {                                                                                     
+" General settings {                                                                                     
 set background=dark         " Assume a dark background
 if !has('gui')
-    "set term=$TERM          " Make arrow and other keys work
+    set term=$TERM          " Make arrow and other keys work
 endif
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " syntax highlighting
@@ -302,43 +323,43 @@ if has('statusline')
     set laststatus=2
 
     " Broken down into easily includeable segments
-    set statusline=%<%f\    " Filename
-    set statusline+=%w%h%m%r " Options
-    set statusline+=%{fugitive#statusline()} "  Git Hotness
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " filetype
     set statusline+=\ [%{getcwd()}]          " current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
 
-set backspace=indent,eol,start  " backspace for dummies
-set linespace=0                 " No extra spaces between rows
-set number                          " Line numbers on
+set backspace=indent,eol,start        " backspace for dummies
+set linespace=0                       " No extra spaces between rows
+set number                            " Line numbers on
 nmap <silent> <F12> :se invnumber<CR> " Toggle line numbers
-set showmatch                   " show matching brackets/parenthesis
-set incsearch                   " find as you type search
-set hlsearch                    " highlight search terms
-set winminheight=0              " windows can be 0 line high
-set ignorecase                  " case insensitive search
-set smartcase                   " case sensitive when uc present
-set wildmenu                    " show list instead of just completing
-set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]   " backspace and cursor keys wrap to
-set scrolljump=5                " lines to scroll when cursor leaves screen
-set scrolloff=3                 " minimum lines to keep above and below cursor
-set foldenable                  " auto fold code
+set showmatch                         " show matching brackets/parenthesis
+set incsearch                         " find as you type search
+set hlsearch                          " highlight search terms
+set winminheight=0                    " windows can be 0 line high
+set ignorecase                        " case insensitive search
+set smartcase                         " case sensitive when uc present
+set wildmenu                          " show list instead of just completing
+set wildmode=list:longest,full        " command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap to
+set scrolljump=5                      " lines to scroll when cursor leaves screen
+set scrolloff=3                       " minimum lines to keep above and below cursor
+set foldenable                        " auto fold code
 
 " }
 
 " Formatting {
-set wrap                      " wrap long lines
-set autoindent                  " indent at the same level of the previous line
-set shiftwidth=4                " use indents of 4 spaces
-set expandtab                   " tabs are spaces, not tabs
-set tabstop=4                   " an indentation every four columns
-set softtabstop=4               " let backspace delete indent
+set wrap              " wrap long lines
+set autoindent        " indent at the same level of the previous line
+set shiftwidth=4      " use indents of 4 spaces
+set expandtab         " tabs are spaces, not tabs
+set tabstop=4         " an indentation every four columns
+set softtabstop=4     " let backspace delete indent
 set nojoinspaces
-set pastetoggle=<F11>           " pastetoggle (sane indentation on pastes)
+set pastetoggle=<F11> " pastetoggle (sane indentation on pastes)
  "Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
@@ -458,11 +479,20 @@ augroup ruby
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
-"C/C++ Code
+"C Code
+augroup c
+    autocmd FileType c  set tabstop=4
+    autocmd FileType c  set shiftwidth=4
+    autocmd FileType c  set noexpandtab
+    autocmd FileType c  let b:ycm_global_ycm_extra_conf='/home/kurojishi/.vim/.ycm_extra_conf.py' " YouCompleteMe standard flags for C files
+augroup END
+
+"C++ Code
 augroup cpp
-    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set tabstop=4
-    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set shiftwidth=4
-    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.cxx,*.cc,*.h,*.hpp set noexpandtab 
+    autocmd FileType cpp  set tabstop=4
+    autocmd FileType cpp  set shiftwidth=4
+    autocmd FileType cpp  set noexpandtab
+    autocmd FileType cpp  let b:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C++ files
 augroup END
 
 "GO code
@@ -480,7 +510,7 @@ augroup python
     au FileType python setlocal tabstop=4
     au FileType python setlocal shiftwidth=4
     au FileType python setlocal noexpandtab
-    autocmd FileType python setlocal omnifunc=RopeCompleteFunc
+    au FileType python setlocal omnifunc=RopeCompleteFunc
 augroup END
 
 
