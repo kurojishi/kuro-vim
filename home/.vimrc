@@ -120,7 +120,39 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "GO bundle plugin still have to figure it out
 Bundle 'jnwhiteh/vim-golang'       
 "awesome autocomplete engine for golang
-Bundle 'undx/vim-gocode'           
+Bundle 'undx/vim-gocode'
+"Go def for parsin of definition and simbols
+Bundle 'dgryski/vim-godef'
+
+"GO tagbar configuration
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
 
 " Variuos python support and completion
 Bundle 'klen/python-mode'
@@ -151,6 +183,11 @@ Bundle 'leshill/vim-json'
 
 "Click modular router syntax highlighing
 Bundle 'vim-scripts/click.vim'
+
+"Latex
+Bundle 'jcf/vim-latex'
+let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
+
 
 "}
 
@@ -188,6 +225,9 @@ let g:nrrw_topbot_leftright = 'topleft'
 
 "Help align things
 Bundle 'godlygeek/tabular'
+
+"easymotion in lines
+Bundle 'Lokaltog/vim-easymotion'
 
 "a lot of easy configuration and replacing for vim, testing
 "Bundle 'tpope/vim-abolish'
@@ -428,6 +468,12 @@ augroup END
 "GO code
 augroup go
     au BufNewFile,BufRead *.go setf go 
+augroup END
+
+augroup latex
+    au FileType latex set tabstop=2
+    au FileType latex set shiftwidth=2
+    "au FileType latex set iskeyword+=:
 augroup END
 
 augroup python
