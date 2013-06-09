@@ -131,10 +131,10 @@ Bundle 'kien/ctrlp.vim'
 "Semantics and Syntax {
 "vim powerfull autocompletion engine
  Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C/C++ files
 let g:ycm_autoclose_preview_window_after_completion=1           " Open documentation preview of currently selected funcion in the autocomple windows
 let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
 let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
+let g:ycm_collect_identifiers_from_tags_files = 1               "Get identifiers from tags
 
 
 Bundle "scrooloose/syntastic"
@@ -150,6 +150,10 @@ nnoremap <F10> :SyntasticCheck<CR>
 
 
 " Git support {
+"
+"latest runtime git files
+Bundle 'tpope/vim-git'
+
 Bundle 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -472,8 +476,8 @@ endfunction
 "AdHoc rules for languages and filetypes {
 " Ruby code.
 augroup ruby
-    autocmd BufReadPre,FileReadPre *.rb set tabstop=2
-    autocmd BufReadPre,FileReadPre *.rb set shiftwidth=2
+    autocmd FileType ruby,eruby setlocal tabstop=2
+    autocmd FileType ruby,eruby setlocal shiftwidth=2
     autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
@@ -481,18 +485,16 @@ augroup END
 
 "C Code
 augroup c
-    autocmd FileType c  set tabstop=4
-    autocmd FileType c  set shiftwidth=4
-    autocmd FileType c  set noexpandtab
-    autocmd FileType c  let b:ycm_global_ycm_extra_conf='/home/kurojishi/.vim/.ycm_extra_conf.py' " YouCompleteMe standard flags for C files
+    autocmd FileType c setlocal tabstop=4
+    autocmd FileType c setlocal shiftwidth=4
+    autocmd FileType c setlocal noexpandtab
 augroup END
 
 "C++ Code
 augroup cpp
-    autocmd FileType cpp  set tabstop=4
-    autocmd FileType cpp  set shiftwidth=4
-    autocmd FileType cpp  set noexpandtab
-    autocmd FileType cpp  let b:ycm_global_ycm_extra_conf='~/.vim/.ycm_cpp_extra_conf.py' " YouCompleteMe standard flags for C++ files
+    autocmd FileType cpp setlocal tabstop=4
+    autocmd FileType cpp setlocal shiftwidth=4
+    autocmd FileType cpp setlocal noexpandtab
 augroup END
 
 "GO code
@@ -501,8 +503,8 @@ augroup go
 augroup END
 
 augroup latex
-    au FileType latex set tabstop=2
-    au FileType latex set shiftwidth=2
+    au FileType latex setlocal tabstop=2
+    au FileType latex setlocal shiftwidth=2
     "au FileType latex set iskeyword+=:
 augroup END
 
@@ -510,7 +512,6 @@ augroup python
     au FileType python setlocal tabstop=4
     au FileType python setlocal shiftwidth=4
     au FileType python setlocal noexpandtab
-    au FileType python setlocal omnifunc=RopeCompleteFunc
 augroup END
 
 
