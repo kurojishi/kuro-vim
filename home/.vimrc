@@ -430,7 +430,7 @@ nmap <silent> <C-S-Right> :wincmd l<CR>
 " Functions
 function! InitializeDirectories()
     let separator = "."
-    let parent = '/home/kurojishi/.vim'
+    let parent = $HOME . '/.vim'
     let prefix = ''
     let dir_list = {
                 \ 'backup': 'backupdir',
@@ -511,7 +511,7 @@ augroup END
 augroup python
     au FileType python setlocal tabstop=4
     au FileType python setlocal shiftwidth=4
-    au FileType python setlocal noexpandtab
+    "au FileType python setlocal noexpandtab
 augroup END
 
 
