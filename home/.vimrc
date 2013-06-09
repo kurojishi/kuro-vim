@@ -216,6 +216,10 @@ let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
 
 "Varies {
 
+"Task organiser syntax and helper
+Bundle 'aaronbieber/quicktask'
+"let g:quicktask_snip_default_filetype = 'task'
+
 Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
@@ -514,6 +518,14 @@ augroup python
     "au FileType python setlocal noexpandtab
 augroup END
 
+
+"Click filetype detecting
+augroup quicktask
+    au BufNewFile,BufRead *.task setf quicktask 
+    au FileType quicktask setlocal tabstop=2
+    au FileType quicktask setlocal shiftwidth=2
+    au FileType quicktask setlocal nospell
+augroup END
 
 "Click filetype detecting
 augroup click
