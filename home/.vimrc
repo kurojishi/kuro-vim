@@ -28,10 +28,12 @@ call vundle#rc()
 "The default leader is '\', but many people prefer ',' as it's in a standard
 "location
 let mapleader = ','
-" Bundles required
+" Bundles required 
 Bundle 'gmarik/vundle'
+"dependence for many bundles
 Bundle 'MarcWeber/vim-addon-mw-utils'
-
+"dependency for xolox bundles
+Bundle 'xolox/vim-misc'
 
 
 "Buffers and windows {
@@ -210,15 +212,11 @@ Bundle 'vim-scripts/click.vim'
 Bundle 'jcf/vim-latex'
 let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
 
-
 "}
 
 
 "Varies {
 
-"Task organiser syntax and helper
-Bundle 'aaronbieber/quicktask'
-"let g:quicktask_snip_default_filetype = 'task'
 
 Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
@@ -256,9 +254,6 @@ Bundle 'godlygeek/tabular'
 "easymotion in lines
 Bundle 'Lokaltog/vim-easymotion'
 
-"a lot of easy configuration and replacing for vim, testing
-"Bundle 'tpope/vim-abolish'
-
 
 "}
 
@@ -271,6 +266,19 @@ Bundle 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger='<C-e>'
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 "}
+
+"Non programming Tasks {
+
+"Task organiser syntax and helper
+Bundle 'aaronbieber/quicktask'
+
+"Taking notes in vim to test real time
+Bundle 'xolox/vim-notes'
+let g:notes_directories = ['~/Agenda/notes']
+
+
+"}
+
 
 "Color section {
 
@@ -521,7 +529,6 @@ augroup END
 
 "Click filetype detecting
 augroup quicktask
-    au BufNewFile,BufRead *.task setf quicktask 
     au FileType quicktask setlocal tabstop=2
     au FileType quicktask setlocal shiftwidth=2
     au FileType quicktask setlocal nospell
