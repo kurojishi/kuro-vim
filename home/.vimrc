@@ -148,6 +148,13 @@ let g:syntastic_warning_symbol = '!'
 
 nnoremap <F10> :SyntasticCheck<CR>
 
+"Eclim eclipse integrazion
+Bundle 'eclim'
+let g:EclimCompletionMethod = 'omnifunc'
+
+"ctags autogenerator for vim
+Bundle 'szw/vim-tags'
+
 "}
 
 
@@ -211,6 +218,11 @@ Bundle 'vim-scripts/click.vim'
 "Latex
 Bundle 'jcf/vim-latex'
 let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
+
+"Doxygen mutlilanguage support
+Bundle 'vim-scripts/DoxygenToolkit.vim'
+let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
+
 
 "}
 
@@ -490,7 +502,7 @@ endfunction
 augroup ruby
     autocmd FileType ruby,eruby setlocal tabstop=2
     autocmd FileType ruby,eruby setlocal shiftwidth=2
-    autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+    "autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
