@@ -142,6 +142,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1               "Get identifiers
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_go_checkers = ['golint']
+let g:syntastic_ruby_checkers = ['mri']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
@@ -208,9 +209,15 @@ endif
 
 "Ruby
 Bundle 'vim-ruby/vim-ruby'
+let g:ruby_fold = 1
+let g:ruby_operators = 1
+let g:ruby_space_errors = 1
 
 " A simple highlighting file for JSON constructs
 Bundle 'leshill/vim-json'
+
+"Indent and highlight for yaml
+Bundle 'shmay/vim-yaml'
 
 "Click modular router syntax highlighing
 Bundle 'vim-scripts/click.vim'
@@ -500,7 +507,8 @@ endfunction
 "AdHoc rules for languages and filetypes {
 " Ruby code.
 augroup ruby
-    autocmd FileType ruby,eruby setlocal tabstop=2
+    autocmd filetype ruby,eruby setlocal tabstop=2
+    autocmd filetype ruby,eruby setlocal softtabstop=2
     autocmd FileType ruby,eruby setlocal shiftwidth=2
     "autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -509,7 +517,8 @@ augroup END
 
 "C Code
 augroup c
-    autocmd FileType c setlocal tabstop=4
+    autocmd filetype c setlocal tabstop=4
+    autocmd filetype c setlocal softtabstop=2
     autocmd FileType c setlocal shiftwidth=4
     autocmd FileType c setlocal noexpandtab
 augroup END
@@ -518,6 +527,7 @@ augroup END
 augroup cpp
     autocmd FileType cpp setlocal tabstop=4
     autocmd FileType cpp setlocal shiftwidth=4
+    autocmd filetype cpp setlocal softtabstop=2
     autocmd FileType cpp setlocal noexpandtab
 augroup END
 
