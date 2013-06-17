@@ -137,7 +137,7 @@ let g:ycm_autoclose_preview_window_after_completion=1           " Open documenta
 let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
 let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
 let g:ycm_collect_identifiers_from_tags_files = 1               "Get identifiers from tags
-
+let g:ycm_collect_identifiers_from_comments_and_strings = 1     "Get identifiers from comments and strings so it can autocomplete arrays and suchs
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
@@ -152,6 +152,9 @@ nnoremap <F10> :SyntasticCheck<CR>
 "Eclim eclipse integrazion
 Bundle 'eclim'
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimRubyValidate = 0
+let g:EclimRubySyntasticEnabled = 1
+let g:EclimBrowser = 'iceweasel'
 
 "ctags autogenerator for vim
 Bundle 'szw/vim-tags'
