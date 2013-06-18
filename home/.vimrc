@@ -106,7 +106,21 @@ let g:tagbar_type_ruby = {
 
 
 " fantastic status line with git support
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
+
+" Powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+let g:Powerline_stl_path_style = 'full'
+let g:Powerline_symbols = 'fancy'
 
 "buffexplorer plugin
 Bundle 'fholgado/minibufexpl.vim'
@@ -126,8 +140,8 @@ Bundle 'kien/ctrlp.vim'
 "Semantics and Syntax {
 "vim powerfull autocompletion engine
  Bundle 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_completion=1           " Open documentation preview of currently selected funcion in the autocomple windows
-let g:ycm_register_as_syntastic_checker=1                       " YCM will register as the C/C++ checker for syntastic
+let g:ycm_autoclose_preview_window_after_completion = 1           " Open documentation preview of currently selected funcion in the autocomple windows
+let g:ycm_register_as_syntastic_checker = 1                       " YCM will register as the C/C++ checker for syntastic
 let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
 let g:ycm_collect_identifiers_from_tags_files = 1               "Get identifiers from tags
 let g:ycm_collect_identifiers_from_comments_and_strings = 1     "Get identifiers from comments and strings so it can autocomplete arrays and suchs
@@ -139,6 +153,7 @@ let g:syntastic_ruby_checkers = ['mri']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 nnoremap <F10> :SyntasticCheck<CR>
 
@@ -356,6 +371,9 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " filetype
     set statusline+=\ [%{getcwd()}]          " current dir
