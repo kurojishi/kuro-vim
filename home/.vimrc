@@ -109,21 +109,14 @@ let g:tagbar_type_ruby = {
 Bundle 'Lokaltog/vim-powerline'
 
 "buffexplorer plugin
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 
 " mini buffer explorer
-let g:MiniBufExplorer=1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-nnoremap <silent> <F9> :TMiniBufExplorer<CR>
+let g:miniBufExplAutoStart = 1
+nnoremap <silent> <F9> :MBEToggle<CR>
 
-map <F1> <ESC><C-W><UP><S-TAB><CR>
-imap <F1> <ESC><C-W><UP><S-TAB><CR>
-map <F2> <ESC><C-W><UP><TAB><CR>
-imap <F2> <ESC><C-W><UP><TAB><CR>
+noremap <silent> <F1> <ESC>:MBEbp<CR>
+noremap <silent> <F2> <ESC>:MBEbn<CR>
 
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
