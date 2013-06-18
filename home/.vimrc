@@ -109,12 +109,12 @@ let g:tagbar_type_ruby = {
 Bundle 'Lokaltog/vim-powerline'
 
 "buffexplorer plugin
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'fholgado/minibufexpl.vim'
 
 " mini buffer explorer
 let g:miniBufExplAutoStart = 1
-nnoremap <silent> <F9> :MBEToggle<CR>
 
+nnoremap <silent> <F9> :MBEToggle<CR>
 noremap <silent> <F1> <ESC>:MBEbp<CR>
 noremap <silent> <F2> <ESC>:MBEbn<CR>
 
