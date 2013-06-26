@@ -128,9 +128,16 @@ Bundle 'fholgado/minibufexpl.vim'
 " mini buffer explorer
 let g:miniBufExplAutoStart = 1
 
+noremap <F1> <nop>
+inoremap <F1> <nop>
+noremap <F2> <nop>
+inoremap <F2> <nop>
+
 nnoremap <silent> <F9> :MBEToggle<CR>
-noremap <silent> <F1> <ESC>:MBEbp<CR>
-noremap <silent> <F2> <ESC>:MBEbn<CR>
+nnoremap <silent> <F1> <ESC>:MBEbp<CR>
+inoremap <silent> <F1> <ESC>:MBEbp<CR>
+nnoremap <silent> <F2> <ESC>:MBEbn<CR>
+inoremap <silent> <F2> <ESC>:MBEbn<CR>
 
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
@@ -208,10 +215,10 @@ let g:pymode_rope_autoimport_generate = 0
 let g:pymode_rope_autoimport_underlineds = 0
 let g:pymode_rope_guess_project = 0
 let g:pymode_rope_goto_def_newwin = "" 
+let g:pymode_virtualenv = 1
 Bundle 'python.vim'
 Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
-
 " PythonMode 
 " Disable if python support not present
 if !has('python')
@@ -371,9 +378,9 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
     set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " filetype
     set statusline+=\ [%{getcwd()}]          " current dir
