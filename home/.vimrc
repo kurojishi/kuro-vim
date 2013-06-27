@@ -291,6 +291,9 @@ Bundle 'godlygeek/tabular'
 "easymotion in lines
 Bundle 'Lokaltog/vim-easymotion'
 
+Bundle 'myusuf3/numbers.vim'
+nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
 
 "}
 
