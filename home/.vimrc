@@ -156,7 +156,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1     "Get identifiers
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_go_checkers = ['golint']
-let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
