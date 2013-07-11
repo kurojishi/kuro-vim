@@ -141,6 +141,7 @@ inoremap <silent> <F2> <ESC>:MBEbn<CR>
 
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_regexp = 1
 "}
 
 
@@ -170,6 +171,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimRubyValidate = 0
 let g:EclimRubySyntasticEnabled = 1
 let g:EclimBrowser = 'iceweasel'
+let g:EclimDefaultFileOpenAction = 'vsplit'
 
 "ctags autogenerator for vim
 Bundle 'szw/vim-tags'
