@@ -315,8 +315,8 @@ let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 Bundle 'aaronbieber/quicktask'
 
 "Taking notes in vim to test real time
-Bundle 'xolox/vim-notes'
-let g:notes_directories = ['~/Agenda/notes']
+"Bundle 'xolox/vim-notes'
+"let g:notes_directories = ['~/Agenda/notes']
 
 
 "}
