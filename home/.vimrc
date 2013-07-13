@@ -256,7 +256,6 @@ let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 
 "Varies {
 
-
 Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
@@ -445,10 +444,10 @@ nnoremap k gk
 
 
 " Stupid shift key fixes
-cmap W w
-cmap WQ wq
-cmap wQ wq
-cmap Q q
+"cmap W w
+"cmap WQ wq
+"cmap wQ wq
+"cmap Q q
 cmap Tabe tabe
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
