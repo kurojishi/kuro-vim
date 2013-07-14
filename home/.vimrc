@@ -296,6 +296,11 @@ Bundle 'myusuf3/numbers.vim'
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
+"autoformatting
+Bundle 'Chiel92/vim-autoformat'
+noremap <F7> <ESC> :Autoformat<CR><CR>
+let g:formatprg_arg_expr_c = '--style=k/r'
+let g:formatprg_arg_expr_cpp = '--style=k/r'
 "}
 
 
@@ -435,7 +440,7 @@ noremap <Left> <nop>
 noremap <Right> <nop>
 
 "astyle binding on F7
-map <F7> <ESC>:%!astyle --style=k/r<ESC>
+"map <F7> <ESC>:%!astyle --style=k/r<ESC>
 
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
