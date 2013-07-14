@@ -20,15 +20,15 @@ INSTALL and SETUP
 be sure to have at least vim 7.3.584(needed by YouCompleteMe) compiled with +python support.
 you need to clone vundle in .vim/bundle/ https://github.com/gmarik/vundle/ a :BundleInstall! will download and install all the other plugin
 
-YouCompleteMe need to be compiled cd .vim/bundle/YouCompleteMe && ./install.sh --clang-completer 
+YouCompleteMe needs to be compiled cd .vim/bundle/YouCompleteMe && ./install.sh --clang-completer 
 but read the doc for more infos
 
 GO autocomple and code checking
 -----
 go need a couple of software for a good autocomplete and a best syntax checking
-be sure to have a propely set up $GOPATH and $GOBIN(this one generaly need to be set up in $GOPATH/bin) and to have $GOBIN in your path
+be sure to have a propely set up $GOPATH and $GOBIN(this one generaly needs to be set up in $GOPATH/bin) and to have $GOBIN in your path
 
-then install ````go get https://github.com/nsf/gocode````, ````go get https://github.com/golang/lint````, ````go get -v code.google.com/p/rog-go/exp/cmd/godef```` and ````go get -u github.com/jstemmer/gotags```` reload your shell and check if you have these tools in your path, then everything should work fine, gocode is the autocomplete engine it's absolutely fast and complete, golint is an error checker that work with syntastic, godef is for getting the definition of a method/function/variables and gotags is for escuberant-ctags like tags that work wonders with tagbar have fun
+then install ````go get https://github.com/nsf/gocode````, ````go get https://github.com/golang/lint````, ````go get -v code.google.com/p/rog-go/exp/cmd/godef```` and ````go get -u github.com/jstemmer/gotags```` reload your shell and check if you have these tools in your path, then everything should work fine, gocode is the autocomplete engine it's absolutely fast and complete, golint is an error checker that works with syntastic, godef is for getting the definition of a method/function/variables and gotags is for escuberant-ctags like tags that work wonders with tagbar have fun
 
 TODO
 ----
