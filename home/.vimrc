@@ -34,7 +34,8 @@ Bundle 'gmarik/vundle'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 "dependency for xolox bundles
 Bundle 'xolox/vim-misc'
-
+"dependancy for bundles
+Bundle 'tomtom/tlib_vim'
 
 "Buffers and windows {
 " VIP section (very importants plugins)
@@ -176,6 +177,14 @@ let g:EclimDefaultFileOpenAction = 'vsplit'
 "ctags autogenerator for vim
 Bundle 'szw/vim-tags'
 
+"autoformatting
+Bundle 'Chiel92/vim-autoformat'
+noremap <F7> <ESC> :Autoformat<CR><CR>
+let g:formatprg_arg_expr_c = '--style=k/r'
+let g:formatprg_arg_expr_cpp = '--style=k/r'
+
+"Endwise add enders to language that needs them(like ruby etc)
+Bundle 'tpope/vim-endwise'
 "}
 
 
@@ -256,13 +265,10 @@ let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 
 "Varies {
 
-Bundle 'tomtom/tlib_vim'
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
 " Vim plugin for intensely orgasmic commenting
 Bundle 'scrooloose/nerdcommenter'
-"Endwise add enders to language that needs them(like ruby etc)
-Bundle 'tpope/vim-endwise'
 " Usefull stuff
 Bundle 'spf13/vim-markdown'
 Bundle 'spf13/vim-preview'
@@ -296,11 +302,6 @@ Bundle 'myusuf3/numbers.vim'
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
-"autoformatting
-Bundle 'Chiel92/vim-autoformat'
-noremap <F7> <ESC> :Autoformat<CR><CR>
-let g:formatprg_arg_expr_c = '--style=k/r'
-let g:formatprg_arg_expr_cpp = '--style=k/r'
 "}
 
 
@@ -433,15 +434,12 @@ autocmd FileType c,cpp,php,javascript,python,twig,xml,yml autocmd BufWritePre <b
 
 " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
 nnoremap ; :
+
 " For hardcore only
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-
-"astyle binding on F7
-"map <F7> <ESC>:%!astyle --style=k/r<ESC>
-
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
