@@ -13,7 +13,7 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "
-" Based on CrisiVim by Matteo Bigoi https://github.com/crisidev/crisiVim
+" Based on CrisiVim by Matteo Bigoi https://github.com/crisidev/homesick-vim
 
 set nocompatible        " must be first line
 set background=dark     " Assume a dark background
@@ -28,7 +28,7 @@ call vundle#rc()
 "The default leader is '\', but many people prefer ',' as it's in a standard
 "location
 let mapleader = ','
-" Bundles required 
+" Dependency Bundles 
 Bundle 'gmarik/vundle'
 "dependence for many bundles
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -38,7 +38,6 @@ Bundle 'xolox/vim-misc'
 Bundle 'tomtom/tlib_vim'
 
 "Buffers and windows {
-" VIP section (very importants plugins)
 " NerdTree
 Bundle 'scrooloose/nerdtree'
 
@@ -52,7 +51,7 @@ map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.o','\.so', 'tags']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeShowHidden=1
@@ -134,7 +133,6 @@ inoremap <F1> <nop>
 noremap <F2> <nop>
 inoremap <F2> <nop>
 
-nnoremap <silent> <F9> :MBEToggle<CR>
 nnoremap <silent> <F1> <ESC>:MBEbp<CR>
 inoremap <silent> <F1> <ESC>:MBEbp<CR>
 nnoremap <silent> <F2> <ESC>:MBEbn<CR>
@@ -149,11 +147,11 @@ let g:ctrlp_regexp = 1
 "Semantics and Syntax {
 "vim powerfull autocompletion engine
  Bundle 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_completion = 1           " Open documentation preview of currently selected funcion in the autocomple windows
-let g:ycm_register_as_syntastic_checker = 1                       " YCM will register as the C/C++ checker for syntastic
-let g:ycm_confirm_extra_conf = 0                                " Don't need to ask everytime to load the .ycm_extra_conf file
-let g:ycm_collect_identifiers_from_tags_files = 1               "Get identifiers from tags
-let g:ycm_collect_identifiers_from_comments_and_strings = 1     "Get identifiers from comments and strings so it can autocomplete arrays and suchs
+let g:ycm_autoclose_preview_window_after_completion = 1     " Open documentation preview of currently selected funcion in the autocomple windows
+let g:ycm_register_as_syntastic_checker = 1                 " YCM will register as the C/C++ checker for syntastic
+let g:ycm_confirm_extra_conf = 0                            " Don't need to ask everytime to load the .ycm_extra_conf file
+let g:ycm_collect_identifiers_from_tags_files = 1           " Get identifiers from tags
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 " Get identifiers from comments and strings so it can autocomplete arrays and suchs
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
@@ -229,7 +227,6 @@ let g:pymode_rope_goto_def_newwin = ""
 let g:pymode_virtualenv = 1
 Bundle 'python.vim'
 Bundle 'python_match.vim'
-Bundle 'pythoncomplete'
 " PythonMode 
 " Disable if python support not present
 if !has('python')
@@ -277,15 +274,16 @@ if executable('ack')
     Bundle 'mileszs/ack.vim'
 endif
 
-"Undo tree plugins for now gundo is better for live moving in the three but
+"Undo tree plugins, for now gundo is better for live moving in the three but
 "the live changes on undotree are sweet
+Bundle 'sjl/gundo.vim'
+nnoremap <F5> :GundoToggle<CR>
+
 "Bundle 'mbbill/undotree'
 "nnoremap <silent> <leader>ut :UndotreeToggle<CR>
 "let g:undotree_TreeNodeShape = 'o'
 "let g:undotree_SplitWidth = 40
 "let g:undotree_SetFocusWhenToggle = 1
-Bundle 'sjl/gundo.vim'
-nnoremap <F5> :GundoToggle<CR>
 
 Bundle 'chrisbra/NrrwRgn'
 let g:nrrw_rgn_vert = 1
@@ -318,11 +316,6 @@ let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 
 "Task organiser syntax and helper
 Bundle 'aaronbieber/quicktask'
-
-"Taking notes in vim to test real time
-"Bundle 'xolox/vim-notes'
-"let g:notes_directories = ['~/Agenda/notes']
-
 
 "}
 
@@ -388,9 +381,9 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    "set statusline+=%#warningmsg#
-    "set statusline+=%{SyntasticStatuslineFlag()}
-    "set statusline+=%*
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " filetype
     set statusline+=\ [%{getcwd()}]          " current dir
