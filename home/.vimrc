@@ -181,6 +181,8 @@ noremap <F7> <ESC> :Autoformat<CR><CR>
 let g:formatprg_arg_expr_c = '--style=k/r'
 let g:formatprg_arg_expr_cpp = '--style=k/r'
 
+Bundle 'tpope/vim-sleuth'
+
 "Endwise add enders to language that needs them(like ruby etc)
 Bundle 'tpope/vim-endwise'
 "}
@@ -260,7 +262,7 @@ let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 "}
 
 
-"Varies {
+"Varies and Utilities{
 
 " extended % matching for HTML, LaTeX, and many 
 Bundle 'matchit.zip'
@@ -273,6 +275,9 @@ Bundle 'spf13/vim-preview'
 if executable('ack')
     Bundle 'mileszs/ack.vim'
 endif
+
+"Alias for standard unix commands generally usefull
+Bundle 'tpope/vim-eunuch'
 
 "Undo tree plugins, for now gundo is better for live moving in the three but
 "the live changes on undotree are sweet
@@ -300,6 +305,10 @@ Bundle 'myusuf3/numbers.vim'
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
+"Webapi for otherplugins, like Gist
+Bundle 'mattn/webapi-vim'
+"Write a Nopaste on github's Gist
+Bundle 'mattn/gist-vim'
 "}
 
 
@@ -528,10 +537,9 @@ endfunction
 "AdHoc rules for languages and filetypes {
 " Ruby code.
 augroup ruby
-    autocmd filetype ruby,eruby setlocal tabstop=2
-    autocmd filetype ruby,eruby setlocal softtabstop=2
-    autocmd FileType ruby,eruby setlocal shiftwidth=2
-    "autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+    "autocmd filetype ruby,eruby setlocal tabstop=2
+    "autocmd filetype ruby,eruby setlocal softtabstop=2
+    "autocmd FileType ruby,eruby setlocal shiftwidth=2
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
@@ -566,7 +574,7 @@ augroup END
 augroup python
     au FileType python setlocal tabstop=4
     au FileType python setlocal shiftwidth=4
-    "au FileType python setlocal noexpandtab
+    au FileType python setlocal noexpandtab
 augroup END
 
 
@@ -582,6 +590,11 @@ augroup click
     au BufNewFile,BufRead *.click setf click 
 augroup END
 
+augroup yaml
+    autocmd filetype yaml setlocal tabstop=2
+    autocmd filetype yaml setlocal softtabstop=2
+    autocmd FileType yaml setlocal shiftwidth=2
+augroup END
 "}
 
 " Enable omni completion.
