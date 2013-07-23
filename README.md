@@ -30,6 +30,10 @@ be sure to have a propely set up $GOPATH and $GOBIN(this one generaly needs to b
 
 then install ````go get https://github.com/nsf/gocode````, ````go get https://github.com/golang/lint````, ````go get -v code.google.com/p/rog-go/exp/cmd/godef```` and ````go get -u github.com/jstemmer/gotags```` reload your shell and check if you have these tools in your path, then everything should work fine, gocode is the autocomplete engine it's absolutely fast and complete, golint is an error checker that works with syntastic, godef is for getting the definition of a method/function/variables and gotags is for escuberant-ctags like tags that work wonders with tagbar have fun
 
+Pyclewn
+----
+pyclewn is still being tested if you want it working you can download it from there http://sourceforge.net/projects/pyclewn/files/ and install it following this guide http://pyclewn.sourceforge.net/install.html
+
 TODO
 ----
 -Add a spf13 like bootstrap script

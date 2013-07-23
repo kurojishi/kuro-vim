@@ -193,6 +193,9 @@ Bundle 'tpope/vim-sleuth'
 "Endwise add enders to language that needs them(like ruby etc)
 Bundle 'tpope/vim-endwise'
 
+"Gdb/pdb integration for vim trough netbeans socket
+Bundle 'pyclewn'
+
 "}
 
 
