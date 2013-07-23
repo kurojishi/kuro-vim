@@ -294,12 +294,6 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<CR>
 
-"Bundle 'mbbill/undotree'
-"nnoremap <silent> <leader>ut :UndotreeToggle<CR>
-"let g:undotree_TreeNodeShape = 'o'
-"let g:undotree_SplitWidth = 40
-"let g:undotree_SetFocusWhenToggle = 1
-
 Bundle 'chrisbra/NrrwRgn'
 let g:nrrw_rgn_vert = 1
 let g:nrrw_rgn_wdth = 80
