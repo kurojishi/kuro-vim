@@ -28,7 +28,8 @@ call vundle#rc()
 "The default leader is '\', but many people prefer ',' as it's in a standard
 "location
 let mapleader = ','
-" Dependency Bundles 
+" Dependency Bundles { 
+
 Bundle 'gmarik/vundle'
 "dependence for many bundles
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -37,7 +38,11 @@ Bundle 'xolox/vim-misc'
 "dependancy for bundles
 Bundle 'tomtom/tlib_vim'
 
+"}
+
+
 "Buffers and windows {
+
 " NerdTree
 Bundle 'scrooloose/nerdtree'
 
@@ -141,10 +146,12 @@ inoremap <silent> <F2> <ESC>:MBEbn<CR>
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_regexp = 1
+
 "}
 
 
 "Semantics and Syntax {
+
 "vim powerfull autocompletion engine
  Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1     " Open documentation preview of currently selected funcion in the autocomple windows
@@ -185,11 +192,12 @@ Bundle 'tpope/vim-sleuth'
 
 "Endwise add enders to language that needs them(like ruby etc)
 Bundle 'tpope/vim-endwise'
+
 "}
 
 
 " Git support {
-"
+
 "latest runtime git files
 Bundle 'tpope/vim-git'
 
@@ -258,7 +266,6 @@ let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
 Bundle 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 
-
 "}
 
 
@@ -309,16 +316,19 @@ nnoremap <F4> :NumbersOnOff<CR>
 Bundle 'mattn/webapi-vim'
 "Write a Nopaste on github's Gist
 Bundle 'mattn/gist-vim'
+
 "}
 
 
 " Code Snippets {
+
 "" Source support_function.vim to support snipmate-snippets.
 "This plugin integrate with YCM 
 Bundle 'SirVer/ultisnips'
 "Bundle 'honza/vim-snippets' "collection of snippets most of them are in ultisnips by default still need to check them all
 let g:UltiSnipsExpandTrigger='<C-e>'
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
+
 "}
 
 "Non programming Tasks {
@@ -335,9 +345,11 @@ Bundle 'aaronbieber/quicktask'
 Bundle 'flazz/vim-colorschemes'
 " More colors
 Bundle 'spf13/vim-colors'
+
 "}
 
-" General settings {                                                                                     
+" General settings {{                                                                                     
+
 set background=dark         " Assume a dark background
 if !has('gui')
     set term=$TERM          " Make arrow and other keys work
@@ -365,9 +377,10 @@ endif
 au BufWinLeave *.* silent! mkview  "make vim save view (state) (folds, cursor, etc)
 au BufWinEnter *.* silent! loadview "make vim load view (state) (folds, cursor, etc)
 " }
-" }
 
-"Vim UI{
+" }}
+
+"Vim UI {
 if filereadable(expand("~/.vim/bundle/vim-colorschemes/colors/jellybeans.vim"))
     color jellybeans              " load a colorscheme
 endif
@@ -420,6 +433,7 @@ set foldenable                        " auto fold code
 " }
 
 " Formatting {
+
 set wrap              " wrap long lines
 set autoindent        " indent at the same level of the previous line
 set shiftwidth=4      " use indents of 4 spaces
@@ -430,6 +444,7 @@ set nojoinspaces
 set pastetoggle=<F11> " pastetoggle (sane indentation on pastes)
  "Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
 " }
 
 " Key (re)Mappings {
@@ -486,9 +501,11 @@ nmap <silent> <C-S-Up> :wincmd k<CR>
 nmap <silent> <C-S-Down> :wincmd j<CR>
 nmap <silent> <C-S-Left> :wincmd h<CR>
 nmap <silent> <C-S-Right> :wincmd l<CR>
+
 " }
 
-" Functions
+" Functions {
+
 function! InitializeDirectories()
     let separator = "."
     let parent = $HOME . '/.vim'
@@ -532,9 +549,11 @@ function! NERDTreeInitAsNeeded()
         wincmd l
     endif
 endfunction
+
 " }
 
 "AdHoc rules for languages and filetypes {
+
 " Ruby code.
 augroup ruby
     "autocmd filetype ruby,eruby setlocal tabstop=2
@@ -595,6 +614,7 @@ augroup yaml
     autocmd filetype yaml setlocal softtabstop=2
     autocmd FileType yaml setlocal shiftwidth=2
 augroup END
+
 "}
 
 " Enable omni completion.
