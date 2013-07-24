@@ -188,7 +188,7 @@ noremap <F7> <ESC> :Autoformat<CR><CR>
 let g:formatprg_arg_expr_c = '--style=k/r'
 let g:formatprg_arg_expr_cpp = '--style=k/r'
 
-Bundle 'tpope/vim-sleuth'
+"Bundle 'tpope/vim-sleuth'
 
 "Endwise add enders to language that needs them(like ruby etc)
 Bundle 'tpope/vim-endwise'
