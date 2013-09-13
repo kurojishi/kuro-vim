@@ -294,10 +294,10 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<CR>
 
-Bundle 'chrisbra/NrrwRgn'
-let g:nrrw_rgn_vert = 1
-let g:nrrw_rgn_wdth = 80
-let g:nrrw_topbot_leftright = 'topleft'
+"Bundle 'chrisbra/NrrwRgn'
+"let g:nrrw_rgn_vert = 1
+"let g:nrrw_rgn_wdth = 80
+"let g:nrrw_topbot_leftright = 'topleft'
 
 "Help align things
 Bundle 'godlygeek/tabular'
@@ -310,9 +310,9 @@ nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
 "Webapi for otherplugins, like Gist
-Bundle 'mattn/webapi-vim'
+"Bundle 'mattn/webapi-vim'
 "Write a Nopaste on github's Gist
-Bundle 'mattn/gist-vim'
+"Bundle 'mattn/gist-vim'
 
 "}
 
