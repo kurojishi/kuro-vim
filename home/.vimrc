@@ -221,7 +221,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "GO bundle plugin still have to figure it out
 Bundle 'jnwhiteh/vim-golang'       
 "awesome autocomplete engine for golang
-Bundle 'undx/vim-gocode'
+Bundle 'Blackrush/vim-gocode'
 "Go def for parsin of definition and simbols
 Bundle 'dgryski/vim-godef'
 
@@ -553,9 +553,6 @@ endfunction
 
 " Ruby code.
 augroup ruby
-    "autocmd filetype ruby,eruby setlocal tabstop=2
-    "autocmd filetype ruby,eruby setlocal softtabstop=2
-    "autocmd FileType ruby,eruby setlocal shiftwidth=2
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
@@ -579,6 +576,7 @@ augroup END
 "GO code
 augroup go
     au BufNewFile,BufRead *.go setf go 
+    au FileType go au BufWritePre <buffer> Fmt
 augroup END
 
 augroup latex
@@ -607,9 +605,9 @@ augroup click
 augroup END
 
 augroup yaml
-    autocmd filetype yaml setlocal tabstop=2
-    autocmd filetype yaml setlocal softtabstop=2
-    autocmd FileType yaml setlocal shiftwidth=2
+    autocmd filetype yaml setlocal tabstop=4
+    autocmd filetype yaml setlocal softtabstop=4
+    autocmd FileType yaml setlocal shiftwidth=4
 augroup END
 
 "}
