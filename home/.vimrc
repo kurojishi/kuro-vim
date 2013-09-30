@@ -188,13 +188,12 @@ noremap <F7> <ESC> :Autoformat<CR><CR>
 let g:formatprg_arg_expr_c = '--style=k/r'
 let g:formatprg_arg_expr_cpp = '--style=k/r'
 
-Bundle 'tpope/vim-sleuth'
-
 "Endwise add enders to language that needs them(like ruby etc)
 Bundle 'tpope/vim-endwise'
 
+Bundle 'tpope/vim-sleuth'
 "Gdb/pdb integration for vim trough netbeans socket
-Bundle 'pyclewn'
+"Bundle 'pyclewn'
 
 "}
 
@@ -553,6 +552,8 @@ endfunction
 
 " Ruby code.
 augroup ruby
+    au FileType latex setlocal tabstop=2
+    au FileType latex setlocal shiftwidth=2
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
