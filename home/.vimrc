@@ -332,6 +332,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 "Task organiser syntax and helper
 Bundle 'aaronbieber/quicktask'
 
+
 "}
 
 
@@ -615,3 +616,21 @@ augroup END
 
 " Enable omni completion.
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+
+"Mail Writing
+au FileType mail call FT_mail()
+
+function! FT_mail()
+    set nocindent
+    set noautoindent
+    set textwidth=68
+    " reformat for 72 char lines
+    " normal gggqGgg
+    " settings
+    setlocal spell spelllang=en
+    " setlocal fileencoding=iso8859-1,utf-8
+    set fileencodings=iso8859-1,utf-8
+    " abbreviations
+    iabbr  gd Good Day!
+endfunction
