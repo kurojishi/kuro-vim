@@ -593,6 +593,11 @@ augroup python
     au FileType python setlocal noexpandtab
 augroup END
 
+augroup java
+    au FileType java setlocal tabstop=4
+    au FileType java setlocal shiftwidth=4
+    au FileType java setlocal noexpandtab
+augroup END
 
 "Click filetype detecting
 augroup quicktask
