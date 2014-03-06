@@ -218,9 +218,10 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "Language specific {
 
 "GO bundle plugin still have to figure it out
-Bundle 'jnwhiteh/vim-golang'       
+"Bundle 'jnwhiteh/vim-golang'       
 "awesome autocomplete engine for golang
-Bundle 'Blackrush/vim-gocode'
+"Bundle 'Blackrush/vim-gocode'
+Bundle 'fsouza/go.vim'
 "Go def for parsin of definition and simbols
 Bundle 'dgryski/vim-godef'
 
