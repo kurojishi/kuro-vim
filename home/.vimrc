@@ -322,10 +322,14 @@ nnoremap <F4> :NumbersOnOff<CR>
 "" Source support_function.vim to support snipmate-snippets.
 "This plugin integrate with YCM 
 Bundle 'SirVer/ultisnips'
-"Bundle 'honza/vim-snippets' "collection of snippets most of them are in ultisnips by default still need to check them all
+Bundle 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger='<C-e>'
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 "}
 
 "Non programming Tasks {
