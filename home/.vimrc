@@ -224,6 +224,8 @@ nnoremap <silent> <leader>gp :Git push<CR>
 Bundle 'fsouza/go.vim'
 "Go def for parsin of definition and simbols
 Bundle 'dgryski/vim-godef'
+let g:godef_same_file_in_same_window=1
+
 
 
 " Variuos python support and completion
