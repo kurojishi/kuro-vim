@@ -221,6 +221,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 Bundle 'fatih/vim-go'
 au Filetype go nnoremap <buffer> <leader>i :exe 'Import ' . expand('<cword>')<CR>
 
+Bundle 'Kashomon/gobu'
 
 
 
