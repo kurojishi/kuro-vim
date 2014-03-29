@@ -172,12 +172,12 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 nnoremap <F10> :SyntasticCheck<CR>
 
 "Eclim eclipse integrazion
-Bundle 'eclim'
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimRubyValidate = 0
-let g:EclimRubySyntasticEnabled = 1
-let g:EclimBrowser = 'iceweasel'
-let g:EclimDefaultFileOpenAction = 'vsplit'
+"Bundle 'eclim'
+"let g:EclimCompletionMethod = 'omnifunc'
+"let g:EclimRubyValidate = 0
+"let g:EclimRubySyntasticEnabled = 1
+"let g:EclimBrowser = 'iceweasel'
+"let g:EclimDefaultFileOpenAction = 'vsplit'
 
 "ctags autogenerator for vim
 Bundle 'szw/vim-tags'
@@ -217,16 +217,10 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 "Language specific {
 
-"GO bundle plugin still have to figure it out
-"Bundle 'jnwhiteh/vim-golang'       
-"awesome autocomplete engine for golang
-"Bundle 'Blackrush/vim-gocode'
-Bundle 'fsouza/go.vim'
-"Go def for parsin of definition and simbols
-Bundle 'dgryski/vim-godef'
-let g:godef_same_file_in_same_window=1
-"Go Build Tool
-Bundle 'Kashomon/gobu'
+"GO plugin now everything is in there
+Bundle 'fatih/vim-go'
+au Filetype go nnoremap <buffer> <leader>i :exe 'Import ' . expand('<cword>')<CR>
+
 
 
 
