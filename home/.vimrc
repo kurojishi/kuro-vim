@@ -582,7 +582,7 @@ augroup END
 "GO code
 augroup go
     au BufNewFile,BufRead *.go setf go 
-    au FileType go au BufWritePre <buffer> Fmt
+    "au FileType go au BufWritePre <buffer> Fmt
 augroup END
 
 augroup latex
