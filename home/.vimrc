@@ -217,10 +217,14 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 "Language specific {
 
-"GO plugin now everything is in there
+"GO bundle plugin still have to figure it out
+"awesome autocomplete engine for golang
+"Bundle 'Blackrush/vim-gocode'
+"Go def for parsin of definition and simbols
+"Bundle 'dgryski/vim-godef'
+"let g:godef_same_file_in_same_window=1
 Bundle 'fatih/vim-go'
-au Filetype go nnoremap <buffer> <leader>i :exe 'Import ' . expand('<cword>')<CR>
-
+"Go Build Tool
 Bundle 'Kashomon/gobu'
 
 
@@ -582,7 +586,6 @@ augroup END
 "GO code
 augroup go
     au BufNewFile,BufRead *.go setf go 
-    "au FileType go au BufWritePre <buffer> Fmt
 augroup END
 
 augroup latex
