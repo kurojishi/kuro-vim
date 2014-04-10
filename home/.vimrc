@@ -146,6 +146,10 @@ inoremap <silent> <F2> <ESC>:MBEbn<CR>
 " Fuzzy file, buffer, mru and tag finder
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_regexp = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(la|so|o|test)$',
+  \ }
 
 "}
 
@@ -162,7 +166,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1 " Get identifiers fr
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_go_checkers = ['golint']
+let g:syntastic_go_checkers = ['go']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
@@ -224,6 +228,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 "Bundle 'dgryski/vim-godef'
 "let g:godef_same_file_in_same_window=1
 Bundle 'fatih/vim-go'
+let g:go_fmt_fail_silently = 1
 "Go Build Tool
 Bundle 'Kashomon/gobu'
 
