@@ -30,13 +30,13 @@ call vundle#rc()
 let mapleader = ','
 " Dependency Bundles { 
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 "dependence for many bundles
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 "dependency for xolox bundles
-Bundle 'xolox/vim-misc'
+Plugin 'xolox/vim-misc'
 "dependancy for bundles
-Bundle 'tomtom/tlib_vim'
+Plugin 'tomtom/tlib_vim'
 
 "}
 
@@ -44,11 +44,11 @@ Bundle 'tomtom/tlib_vim'
 "Buffers and windows {
 
 " NerdTree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " This plugin aims at making NERDTree feel like a true panel, independent of
 " tabs.
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " NerdTree Config
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -63,7 +63,7 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 
 " Ctags Tab Bar support
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 "tagbar remap
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
@@ -111,10 +111,9 @@ let g:tagbar_type_ruby = {
 
 
 " fantastic status line with git support
-Bundle 'Lokaltog/powerline'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 
 " Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set noshowmode
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -128,7 +127,7 @@ let g:Powerline_stl_path_style = 'full'
 let g:Powerline_symbols = 'fancy'
 
 "buffexplorer plugin
-Bundle 'fholgado/minibufexpl.vim'
+Plugin 'fholgado/minibufexpl.vim'
 
 " mini buffer explorer
 let g:miniBufExplAutoStart = 1
@@ -144,7 +143,7 @@ nnoremap <silent> <F2> <ESC>:MBEbn<CR>
 inoremap <silent> <F2> <ESC>:MBEbn<CR>
 
 " Fuzzy file, buffer, mru and tag finder
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_regexp = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -157,16 +156,16 @@ let g:ctrlp_custom_ignore = {
 "Semantics and Syntax {
 
 "vim powerfull autocompletion engine
- Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1     " Open documentation preview of currently selected funcion in the autocomple windows
 let g:ycm_register_as_syntastic_checker = 1                 " YCM will register as the C/C++ checker for syntastic
 let g:ycm_confirm_extra_conf = 0                            " Don't need to ask everytime to load the .ycm_extra_conf file
 let g:ycm_collect_identifiers_from_tags_files = 1           " Get identifiers from tags
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 " Get identifiers from comments and strings so it can autocomplete arrays and suchs
 
-Bundle "scrooloose/syntastic"
+Plugin 'scrooloose/syntastic'
 let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_go_checkers = ['go']
+let g:syntastic_go_checkers = ['go', 'goling']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
@@ -176,7 +175,7 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 nnoremap <F10> :SyntasticCheck<CR>
 
 "Eclim eclipse integrazion
-"Bundle 'eclim'
+"Plugin 'eclim'
 "let g:EclimCompletionMethod = 'omnifunc'
 "let g:EclimRubyValidate = 0
 "let g:EclimRubySyntasticEnabled = 1
@@ -184,20 +183,20 @@ nnoremap <F10> :SyntasticCheck<CR>
 "let g:EclimDefaultFileOpenAction = 'vsplit'
 
 "ctags autogenerator for vim
-Bundle 'szw/vim-tags'
+Plugin 'szw/vim-tags'
 
 "autoformatting
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'Chiel92/vim-autoformat'
 noremap <F7> <ESC> :Autoformat<CR><CR>
 let g:formatprg_arg_expr_c = '--style=k/r'
 let g:formatprg_arg_expr_cpp = '--style=k/r'
 
 "Endwise add enders to language that needs them(like ruby etc)
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 
-Bundle 'tpope/vim-sleuth'
+Plugin 'tpope/vim-sleuth'
 "Gdb/pdb integration for vim trough netbeans socket
-"Bundle 'pyclewn'
+"Plugin 'pyclewn'
 
 "}
 
@@ -205,9 +204,9 @@ Bundle 'tpope/vim-sleuth'
 " Git support {
 
 "latest runtime git files
-Bundle 'tpope/vim-git'
+Plugin 'tpope/vim-git'
 
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -223,19 +222,19 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 "GO bundle plugin still have to figure it out
 "awesome autocomplete engine for golang
-"Bundle 'Blackrush/vim-gocode'
+"Plugin 'Blackrush/vim-gocode'
 "Go def for parsin of definition and simbols
-"Bundle 'dgryski/vim-godef'
+"Plugin 'dgryski/vim-godef'
 "let g:godef_same_file_in_same_window=1
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 let g:go_fmt_fail_silently = 1
 "Go Build Tool
-Bundle 'Kashomon/gobu'
+Plugin 'Kashomon/gobu'
 
 
 
 " Variuos python support and completion
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
 let g:pymode_lint = 0
 "Rope omnicomp settings
 let g:pymode_rope = 1
@@ -246,8 +245,8 @@ let g:pymode_rope_autoimport_underlineds = 0
 let g:pymode_rope_guess_project = 0
 let g:pymode_rope_goto_def_newwin = "" 
 let g:pymode_virtualenv = 1
-Bundle 'python.vim'
-Bundle 'python_match.vim'
+Plugin 'python.vim'
+Plugin 'python_match.vim'
 " PythonMode 
 " Disable if python support not present
 if !has('python')
@@ -255,26 +254,26 @@ if !has('python')
 endif
 
 "Ruby
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 let g:ruby_fold = 1
 let g:ruby_operators = 1
 let g:ruby_space_errors = 1
 
 " A simple highlighting file for JSON constructs
-Bundle 'leshill/vim-json'
+Plugin 'leshill/vim-json'
 
 "Indent and highlight for yaml
-Bundle 'shmay/vim-yaml'
+Plugin 'shmay/vim-yaml'
 
 "Click modular router syntax highlighing
-Bundle 'vim-scripts/click.vim'
+Plugin 'vim-scripts/click.vim'
 
 "Latex
-Bundle 'jcf/vim-latex'
+Plugin 'jcf/vim-latex'
 let g:tex_flavor = 'latex'  "Set defualt filetype for tex file to latex
 
 "Doxygen mutlilanguage support
-Bundle 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 
 "}
@@ -283,44 +282,44 @@ let g:DoxygenToolkit_authorName="Francesco Berni kurojishi@gmail.com"
 "Varies and Utilities{
 
 " extended % matching for HTML, LaTeX, and many 
-Bundle 'matchit.zip'
+Plugin 'matchit.zip'
 " Vim plugin for intensely orgasmic commenting
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 " Usefull stuff
-Bundle 'spf13/vim-markdown'
-Bundle 'spf13/vim-preview'
+Plugin 'spf13/vim-markdown'
+Plugin 'spf13/vim-preview'
 " Better than grep
 if executable('ack')
-    Bundle 'mileszs/ack.vim'
+    Plugin 'mileszs/ack.vim'
 endif
 
 "Alias for standard unix commands generally usefull
-Bundle 'tpope/vim-eunuch'
+Plugin 'tpope/vim-eunuch'
 
 "Undo tree plugins, for now gundo is better for live moving in the three but
 "the live changes on undotree are sweet
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<CR>
 
-"Bundle 'chrisbra/NrrwRgn'
+"Plugin 'chrisbra/NrrwRgn'
 "let g:nrrw_rgn_vert = 1
 "let g:nrrw_rgn_wdth = 80
 "let g:nrrw_topbot_leftright = 'topleft'
 
 "Help align things
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 
 "easymotion in lines
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
-Bundle 'myusuf3/numbers.vim'
+Plugin 'myusuf3/numbers.vim'
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
 "Webapi for otherplugins, like Gist
-"Bundle 'mattn/webapi-vim'
+"Plugin 'mattn/webapi-vim'
 "Write a Nopaste on github's Gist
-"Bundle 'mattn/gist-vim'
+"Plugin 'mattn/gist-vim'
 
 "}
 
@@ -329,8 +328,8 @@ nnoremap <F4> :NumbersOnOff<CR>
 
 "" Source support_function.vim to support snipmate-snippets.
 "This plugin integrate with YCM 
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger='<C-e>'
 let g:UltiSnipsJumpForwardTrigger="<C-b>"
 let g:UltiSnipsJumpBackwardTrigger="<C-z>"
@@ -343,7 +342,7 @@ let g:UltiSnipsEditSplit="vertical"
 "Non programming Tasks {
 
 "Task organiser syntax and helper
-Bundle 'aaronbieber/quicktask'
+Plugin 'aaronbieber/quicktask'
 
 
 "}
@@ -352,9 +351,9 @@ Bundle 'aaronbieber/quicktask'
 "Color section {
 
 " More colorscheme
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 " More colors
-Bundle 'spf13/vim-colors'
+Plugin 'spf13/vim-colors'
 
 "}
 
