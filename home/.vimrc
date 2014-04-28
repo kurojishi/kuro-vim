@@ -215,17 +215,15 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
+Plugin 'jaxbot/github-issues.vim'
+let g:github_upstream_issues = 1 
+
 "}
 
 
 "Language specific {
 
-"GO bundle plugin still have to figure it out
-"awesome autocomplete engine for golang
-"Plugin 'Blackrush/vim-gocode'
-"Go def for parsin of definition and simbols
-"Plugin 'dgryski/vim-godef'
-"let g:godef_same_file_in_same_window=1
+"GO bundle plugin still perfect this out
 Plugin 'fatih/vim-go'
 let g:go_fmt_fail_silently = 1
 "Go Build Tool
@@ -565,8 +563,8 @@ endfunction
 
 " Ruby code.
 augroup ruby
-    au FileType latex setlocal tabstop=2
-    au FileType latex setlocal shiftwidth=2
+    au FileType ruby setlocal tabstop=2
+    au FileType ruby setlocal shiftwidth=2
     autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
