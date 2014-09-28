@@ -185,6 +185,7 @@ let g:github_upstream_issues = 1
 "GO bundle plugin still perfect this out
 Plugin 'fatih/vim-go'
 let g:go_fmt_fail_silently = 1
+let g:go_snippet_engine = 'ultisnips'
 "Go Build Tool
 Plugin 'Kashomon/gobu'
 
