@@ -312,7 +312,6 @@ Plugin 'aaronbieber/quicktask'
 Plugin 'flazz/vim-colorschemes'
 " More colors
 Plugin 'spf13/vim-colors'
-
 "}
 
 " General settings {{                                                                                     
@@ -332,6 +331,8 @@ set virtualedit=onemore         " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
 set nospell                     " spell checking off
 set hidden                      " allow buffer switching without saving
+"Encrytion algorithm
+set cm=blowfish2
 
 " Setting up the directories {
 set backup                      " backups are nice ...
@@ -349,7 +350,7 @@ au BufWinEnter *.* silent! loadview "make vim load view (state) (folds, cursor, 
 
 "Vim UI {
 if filereadable(expand("~/.vim/bundle/vim-colorschemes/colors/jellybeans.vim"))
-    color jellybeans              " load a colorscheme
+    color molokai              " load a colorscheme
 endif
 
 set tabpagemax=15               " only show 15 tabs
