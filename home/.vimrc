@@ -123,6 +123,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1           " Get identifiers fr
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 " Get identifiers from comments and strings so it can autocomplete arrays and suchs
 
 Plugin 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_go_checkers = ['go', 'golint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
