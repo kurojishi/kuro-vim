@@ -44,23 +44,23 @@ Plugin 'tomtom/tlib_vim'
 "Buffers and windows {
 
 " NerdTree
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " This plugin aims at making NERDTree feel like a true panel, independent of
 " tabs.
-Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'jistr/vim-nerdtree-tabs'
 
 " NerdTree Config
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
+"map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+"map <leader>e :NERDTreeFind<CR>
+"nmap <leader>nt :NERDTreeFind<CR>
 
-let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.o','\.so', 'tags']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=0
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
+"let NERDTreeShowBookmarks=0
+"let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.o','\.so', 'tags']
+"let NERDTreeChDirMode=0
+"let NERDTreeQuitOnOpen=0
+"let NERDTreeShowHidden=1
+"let NERDTreeKeepTreeInNewTab=1
 
 " Ctags Tab Bar support
 Plugin 'majutsushi/tagbar'
@@ -111,6 +111,10 @@ let g:ctrlp_custom_ignore = {
 
 "}
 
+Plugin 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 10
 
 "Semantics and Syntax {
 
@@ -150,8 +154,8 @@ Plugin 'szw/vim-tags'
 "autoformatting
 Plugin 'Chiel92/vim-autoformat'
 noremap <F7> <ESC> :Autoformat<CR><CR>
-let g:formatprg_arg_expr_c = '--style=k/r'
-let g:formatprg_arg_expr_cpp = '--style=k/r'
+let g:formatprg_arg_expr_c = '--style=linux'
+let g:formatprg_arg_expr_cpp = '--style=linux'
 
 "Endwise add enders to language that needs them(like ruby etc)
 Plugin 'tpope/vim-endwise'
@@ -507,17 +511,17 @@ function! InitializeDirectories()
 endfunction
 call InitializeDirectories()
 
-function! NERDTreeInitAsNeeded()
-    redir => bufoutput
-    buffers!
-    redir END
-    let idx = stridx(bufoutput, "NERD_tree")
-    if idx > -1
-        NERDTreeMirror
-        NERDTreeFind
-        wincmd l
-    endif
-endfunction
+"function! NERDTreeInitAsNeeded()
+    "redir => bufoutput
+    "buffers!
+    "redir END
+    "let idx = stridx(bufoutput, "NERD_tree")
+    "if idx > -1
+        "NERDTreeMirror
+        "NERDTreeFind
+        "wincmd l
+    "endif
+"endfunction
 
 " }
 
