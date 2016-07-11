@@ -98,6 +98,7 @@ inoremap <F2> <nop>
 
 nnoremap <silent> <F1> <ESC>:MBEbp<CR>
 inoremap <silent> <F1> <ESC>:MBEbp<CR>
+cnoremap <silent> <F1> <ESC>:MBEbp<CR>
 nnoremap <silent> <F2> <ESC>:MBEbn<CR>
 inoremap <silent> <F2> <ESC>:MBEbn<CR>
 
